@@ -102,7 +102,10 @@ const RecipeList = () => {
   };
 
   const filteredRecipes = recipe.filter(
-    (item) => !search || item.title.includes(search)
+    (item) =>
+      !search ||
+      item.title.includes(search.toLowerCase()) ||
+      item.title.includes(search.toUpperCase())
   );
 
   return (
