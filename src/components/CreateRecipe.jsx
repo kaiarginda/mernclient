@@ -3,8 +3,6 @@ import { useCookies } from "react-cookie";
 import { Cookies } from "react-cookie";
 import Model from "./Model";
 import { Oval } from "react-loader-spinner";
-import { FaRegHeart } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa6";
 
 const CreateRecipe = () => {
   const [formData, setFormData] = useState({

@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import IndividualRecipe from "./IndividualRecipe";
 import { ProgressBar } from "react-loader-spinner";
@@ -20,9 +18,12 @@ const RecipeList = () => {
     async function fetchData() {
       setLoading(true);
       try {
-        const response = await fetch("https://mern-oqur.onrender.com/api/recipes", {
-          method: "GET",
-        });
+        const response = await fetch(
+          "https://mern-oqur.onrender.com/api/recipes",
+          {
+            method: "GET",
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           setRecipe(data);
