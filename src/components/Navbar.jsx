@@ -9,7 +9,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchDat = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/loggedUser", {
+        const response = await fetch("https://mern-oqur.onrender.com/api/loggedUser", {
           method: "POST",
           headers: {
             // Authorization: `Bearer ${cookies.token}`,
