@@ -128,6 +128,7 @@ const RecipeList = () => {
               title={item.title}
               ingredients={item.ingredients}
               description={item.description}
+              // image={`https://mern-oqur.onrender.com/api/uploads/${item.image}`}
               image={`https://mern-oqur.onrender.com/api/uploads/${item.image}`}
               recipe={item}
             />
