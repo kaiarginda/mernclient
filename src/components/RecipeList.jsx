@@ -128,7 +128,7 @@ const RecipeList = () => {
               title={item.title}
               ingredients={item.ingredients}
               description={item.description}
-              image={`http://localhost:5000/uploads/${item.image}`}
+              image={`https://recipereact.onrender.com/uploads/${item.image}`}
               recipe={item}
             />
 
