@@ -122,31 +122,34 @@ const RecipeList = () => {
       </div>
 
       <div className="recipe-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        {filteredRecipes.slice(0, displayedRecipes).map((item, index) => (
-          <div key={index} className="relative">
-            <IndividualRecipe
-              title={item.title}
-              ingredients={item.ingredients}
-              description={item.description}
-              // image={`https://mern-oqur.onrender.com/api/uploads/${item.image}`}
-              image={`https://mern-oqur.onrender.com/api/uploads/${item.image}`}
-              recipe={item}
-            />
+        {filteredRecipes.slice(0, displayedRecipes).map((item, index) => {
+          console.log(item, "item for real tho");
+          return (
+            <div key={index} className="relative">
+              <IndividualRecipe
+                title={item.title}
+                ingredients={item.ingredients}
+                description={item.description}
+                // image={`https://mern-oqur.onrender.com/api/uploads/${item.image}`}
+                image={`https://mern-oqur.onrender.com/api/uploads/${item.image}`}
+                recipe={item}
+              />
 
-            {loggedUser && (
-              <button
-                onClick={() => addToFavourites(index)}
-                className="absolute top-2 right-2 flex items-center justify-center bg-white rounded-full p-2"
-              >
-                {wishlist.includes(recipe[index]._id) ? (
-                  <FaHeart fill="red" />
-                ) : (
-                  <FaRegHeart />
-                )}
-              </button>
-            )}
-          </div>
-        ))}
+              {loggedUser && (
+                <button
+                  onClick={() => addToFavourites(index)}
+                  className="absolute top-2 right-2 flex items-center justify-center bg-white rounded-full p-2"
+                >
+                  {wishlist.includes(recipe[index]._id) ? (
+                    <FaHeart fill="red" />
+                  ) : (
+                    <FaRegHeart />
+                  )}
+                </button>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {loading && (
