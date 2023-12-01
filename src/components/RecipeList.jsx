@@ -18,12 +18,9 @@ const RecipeList = () => {
     async function fetchData() {
       setLoading(true);
       try {
-        const response = await fetch(
-          "https://mern-oqur.onrender.com/api/recipes",
-          {
-            method: "GET",
-          }
-        );
+        const response = await fetch("http://localhost:5000/api/recipes", {
+          method: "GET",
+        });
         if (response.ok) {
           const data = await response.json();
           setRecipe(data);
@@ -40,7 +37,7 @@ const RecipeList = () => {
     const getFavourites = async () => {
       try {
         const response = await fetch(
-          "https://mern-oqur.onrender.com/api/get-favourites",
+          "http://localhost:5000/api/get-favourites",
           {
             method: "POST",
             headers: {
@@ -83,7 +80,7 @@ const RecipeList = () => {
 
     const updateFavourites = async () => {
       try {
-        await fetch("https://mern-oqur.onrender.com/api/update-favourites", {
+        await fetch("http://localhost:5000/api/update-favourites", {
           method: "POST",
           body: JSON.stringify({
             user: loggedUser,
@@ -131,7 +128,7 @@ const RecipeList = () => {
                 ingredients={item.ingredients}
                 description={item.description}
                 // image={`https://mern-oqur.onrender.com/api/uploads/${item.image}`}
-                image={`https://mern-oqur.onrender.com/api/uploads/${item.image}`}
+                image={`http://localhost:5000/uploads/${item.image}`}
                 recipe={item}
               />
 

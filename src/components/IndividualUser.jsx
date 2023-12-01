@@ -18,7 +18,7 @@ const IndividualUser = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://mern-oqur.onrender.com/api/user", {
+      const response = await fetch("http://localhost:5000/api/user", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -45,7 +45,7 @@ const IndividualUser = () => {
 
   const fetchLoggedUser = async () => {
     try {
-      const response = await fetch("https://mern-oqur.onrender.com/api/users", {
+      const response = await fetch("http://localhost:5000/api/users", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${cookies.token}`,
@@ -80,7 +80,7 @@ const IndividualUser = () => {
   const fetchUserFavourites = async () => {
     try {
       const response = await fetch(
-        "https://mern-oqur.onrender.com/api/get-other-favourites",
+        "http://localhost:5000/api/get-other-favourites",
         {
           method: "POST",
           headers: {

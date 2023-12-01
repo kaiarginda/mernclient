@@ -30,7 +30,7 @@ const Login = () => {
     setLoading(true);
     if (!formData.username || !formData.password)
       alert("Username Or Password Can't be an empty");
-    const response = await fetch("https://mern-oqur.onrender.com/api/login", {
+    const response = await fetch("http://localhost:5000/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // Set the Content-Type header

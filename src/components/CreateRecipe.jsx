@@ -27,7 +27,7 @@ const CreateRecipe = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://mern-oqur.onrender.com/api/loggedUser",
+          "http://localhost:5000/api/loggedUser",
           {
             method: "POST",
             headers: {
@@ -70,7 +70,7 @@ const CreateRecipe = () => {
     data.append("ingredients", ingredients);
 
     try {
-      await fetch("https://mern-oqur.onrender.com/api/createRecipe", {
+      await fetch("http://localhost:5000/api/createRecipe", {
         method: "POST",
         body: data,
       });

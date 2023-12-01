@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useCookies } from "react-cookie";
@@ -20,7 +18,7 @@ const RecipeDetails = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://mern-oqur.onrender.com/api/recipes/:title/:id",
+          "http://localhost:5000/api/recipes/:title/:id",
           {
             method: "POST",
             body: JSON.stringify({ recipeId: url.split("/")[5] }),
@@ -45,7 +43,7 @@ const RecipeDetails = () => {
 
     const fetchDat = async () => {
       try {
-        const response = await fetch("https://mern-oqur.onrender.com/api/loggedUser", {
+        const response = await fetch("http://localhost:5000/api/loggedUser", {
           method: "POST",
           headers: {
             // Authorization: `Bearer ${cookies.token}`,

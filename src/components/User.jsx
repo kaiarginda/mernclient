@@ -7,18 +7,15 @@ const User = () => {
   const [cookies, setCookies] = useCookies(["name"]);
   const fetchLoggedUser = async () => {
     try {
-      const response = await fetch(
-        "https://mern-oqur.onrender.com/api/loggedUser",
-        {
-          method: "POST",
-          headers: {
-            //   Authorization: `Bearer ${cookies.token}`,
-            "Content-type": "application/json",
-          },
+      const response = await fetch("http://localhost:5000/api/loggedUser", {
+        method: "POST",
+        headers: {
+          //   Authorization: `Bearer ${cookies.token}`,
+          "Content-type": "application/json",
+        },
 
-          body: JSON.stringify({ token: cookies.token }),
-        }
-      );
+        body: JSON.stringify({ token: cookies.token }),
+      });
       if (response.ok) {
         const userData = await response.json();
         setLoggedUser(userData.user);

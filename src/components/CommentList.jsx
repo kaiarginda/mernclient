@@ -20,7 +20,7 @@ const CommentList = ({ productId, loggedUser }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://mern-oqur.onrender.com/api/commentList");
+        const response = await fetch("http://localhost:5000/api/commentList");
 
         if (response.ok) {
           const data = await response.json();

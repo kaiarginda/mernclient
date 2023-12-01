@@ -19,7 +19,7 @@ const IndividualComment = ({
   };
   const submitReply = async (com) => {
     if (loggedUser) {
-      await fetch("https://mern-oqur.onrender.com/api/reply", {
+      await fetch("http://localhost:5000/api/reply", {
         headers: {
           "Content-Type": "application/json",
         },

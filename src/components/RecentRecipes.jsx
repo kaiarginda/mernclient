@@ -7,12 +7,9 @@ const RecentRecipes = () => {
     async function fetchData() {
       setLoading(true);
       try {
-        const response = await fetch(
-          "https://mern-oqur.onrender.com/api/recipes",
-          {
-            method: "GET",
-          }
-        );
+        const response = await fetch("http://localhost:5000/api/recipes", {
+          method: "GET",
+        });
         if (response.ok) {
           const data = await response.json();
           setRecipe(data);
