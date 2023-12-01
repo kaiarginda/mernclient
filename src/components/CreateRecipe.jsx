@@ -27,7 +27,7 @@ const CreateRecipe = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/loggedUser",
+          "https://mernback-2g3e.onrender.com/api/loggedUser",
           {
             method: "POST",
             headers: {
@@ -70,7 +70,7 @@ const CreateRecipe = () => {
     data.append("ingredients", ingredients);
 
     try {
-      await fetch("http://localhost:5000/api/createRecipe", {
+      await fetch("https://mernback-2g3e.onrender.com/api/createRecipe", {
         method: "POST",
         body: data,
       });

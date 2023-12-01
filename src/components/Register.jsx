@@ -35,14 +35,17 @@ const Register = () => {
     // });
 
     // console.log("user object from testing purposes", user);
-    const response = await fetch("http://localhost:5000/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...formData }),
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://mernback-2g3e.onrender.com/api/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData }),
+        credentials: "include",
+      }
+    );
 
     if (response.ok) {
       const user = await response.json(); // Transform the response to JSON

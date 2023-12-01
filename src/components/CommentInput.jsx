@@ -8,7 +8,7 @@ const CommentInput = ({ postID, author }) => {
   const formSubmitHandler = async (e) => {
     e.preventDefault();
     setReload(true);
-    await fetch("http://localhost:5000/api/comment", {
+    await fetch("https://mernback-2g3e.onrender.com/api/comment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

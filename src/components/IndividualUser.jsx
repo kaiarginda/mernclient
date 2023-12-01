@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import IndividualRecipe from "./IndividualRecipe";
-import { Link } from "react-router-dom";
 const IndividualUser = () => {
   const url = window.location.href;
 
@@ -18,13 +17,16 @@ const IndividualUser = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/user", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ name }),
-      });
+      const response = await fetch(
+        "https://mernback-2g3e.onrender.com/api/user",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ name }),
+        }
+      );
       if (response.ok) {
         const userData = await response.json();
         if (userData.user) {
@@ -45,18 +47,21 @@ const IndividualUser = () => {
 
   const fetchLoggedUser = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/users", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${cookies.token}`,
-          "Content-Type": "application/json", // Add this line to specify the content type
-        },
-        credentials: "include",
-        xhrFields: {
-          withCredentials: true,
-        },
-        body: JSON.stringify({ name }),
-      });
+      const response = await fetch(
+        "https://mernback-2g3e.onrender.com/api/users",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${cookies.token}`,
+            "Content-Type": "application/json", // Add this line to specify the content type
+          },
+          credentials: "include",
+          xhrFields: {
+            withCredentials: true,
+          },
+          body: JSON.stringify({ name }),
+        }
+      );
       if (response.ok) {
         const userData = await response.json();
         if (userData.loggedUser) {
@@ -80,7 +85,7 @@ const IndividualUser = () => {
   const fetchUserFavourites = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/get-other-favourites",
+        "https://mernback-2g3e.onrender.com/api/get-other-favourites",
         {
           method: "POST",
           headers: {
@@ -130,13 +135,16 @@ const IndividualUser = () => {
   const followHandler = async () => {
     if (follows) {
       try {
-        const response = await fetch("http://localhost:5000/api/unfollow", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ loggedName: loggedUser.name, user }),
-        });
+        const response = await fetch(
+          "https://mernback-2g3e.onrender.com/api/unfollow",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ loggedName: loggedUser.name, user }),
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -157,13 +165,16 @@ const IndividualUser = () => {
       }
     }
     try {
-      const response = await fetch("http://localhost:5000/api/follow", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ loggedName: loggedUser.name, user }),
-      });
+      const response = await fetch(
+        "https://mernback-2g3e.onrender.com/api/follow",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ loggedName: loggedUser.name, user }),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -313,7 +324,7 @@ const IndividualUser = () => {
               title={item.title}
               ingredients={item.ingredients}
               description={item.description}
-              image={`http://localhost:5000/uploads/${item.image}`}
+              image={`https://mernback-2g3e.onrender.com/uploads/${item.image}`}
               recipe={item}
             />
           ))}

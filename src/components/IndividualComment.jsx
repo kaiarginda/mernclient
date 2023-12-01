@@ -19,7 +19,7 @@ const IndividualComment = ({
   };
   const submitReply = async (com) => {
     if (loggedUser) {
-      await fetch("http://localhost:5000/api/reply", {
+      await fetch("https://mernback-2g3e.onrender.com/api/reply", {
         headers: {
           "Content-Type": "application/json",
         },

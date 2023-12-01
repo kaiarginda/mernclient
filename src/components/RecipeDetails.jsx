@@ -18,7 +18,7 @@ const RecipeDetails = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/recipes/:title/:id",
+          "https://mernback-2g3e.onrender.com/api/recipes/:title/:id",
           {
             method: "POST",
             body: JSON.stringify({ recipeId: url.split("/")[5] }),
@@ -43,7 +43,7 @@ const RecipeDetails = () => {
 
     const fetchDat = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/loggedUser", {
+        const response = await fetch("https://mernback-2g3e.onrender.com/api/loggedUser", {
           method: "POST",
           headers: {
             // Authorization: `Bearer ${cookies.token}`,
@@ -96,7 +96,7 @@ const RecipeDetails = () => {
             {/* Recipe Details */}
             <div className="mb-4">
               <img
-                src={`http://localhost:5000/uploads/${recipe?.image}`}
+                src={`https://mernback-2g3e.onrender.com/uploads/${recipe?.image}`}
                 alt="Recipe"
                 className="w-full h-auto rounded-lg"
               />

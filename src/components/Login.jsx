@@ -30,17 +30,20 @@ const Login = () => {
     setLoading(true);
     if (!formData.username || !formData.password)
       alert("Username Or Password Can't be an empty");
-    const response = await fetch("http://localhost:5000/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", // Set the Content-Type header
-      },
-      credentials: "include", // Include cookies
-      xhrFields: {
-        withCredentials: true,
-      },
-      body: JSON.stringify({ ...formData }),
-    });
+    const response = await fetch(
+      "https://mernback-2g3e.onrender.com/api/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Set the Content-Type header
+        },
+        credentials: "include", // Include cookies
+        xhrFields: {
+          withCredentials: true,
+        },
+        body: JSON.stringify({ ...formData }),
+      }
+    );
     if (response.ok) {
       const resp = await response.json(); // Transform the response to JSON
       console.log("after login to check if exists or not.", resp);

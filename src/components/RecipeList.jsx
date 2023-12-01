@@ -18,9 +18,12 @@ const RecipeList = () => {
     async function fetchData() {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:5000/api/recipes", {
-          method: "GET",
-        });
+        const response = await fetch(
+          "https://mernback-2g3e.onrender.com/api/recipes",
+          {
+            method: "GET",
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           setRecipe(data);
@@ -37,7 +40,7 @@ const RecipeList = () => {
     const getFavourites = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/get-favourites",
+          "https://mernback-2g3e.onrender.com/api/get-favourites",
           {
             method: "POST",
             headers: {
@@ -80,16 +83,19 @@ const RecipeList = () => {
 
     const updateFavourites = async () => {
       try {
-        await fetch("http://localhost:5000/api/update-favourites", {
-          method: "POST",
-          body: JSON.stringify({
-            user: loggedUser,
-            favourites: updatedWishlist,
-          }),
-          headers: {
-            "Content-type": "application/json",
-          },
-        });
+        await fetch(
+          "https://mernback-2g3e.onrender.com/api/update-favourites",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              user: loggedUser,
+              favourites: updatedWishlist,
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -128,7 +134,7 @@ const RecipeList = () => {
                 ingredients={item.ingredients}
                 description={item.description}
                 // image={`https://mern-oqur.onrender.com/api/uploads/${item.image}`}
-                image={`http://localhost:5000/uploads/${item.image}`}
+                image={`https://mernback-2g3e.onrender.com/uploads/${item.image}`}
                 recipe={item}
               />
 

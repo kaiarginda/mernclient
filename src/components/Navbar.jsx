@@ -9,18 +9,21 @@ const Navbar = () => {
   useEffect(() => {
     const fetchDat = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/loggedUser", {
-          method: "POST",
-          headers: {
-            // Authorization: `Bearer ${cookies.token}`,
-            "Content-type": "application/json",
-          },
-          credentials: "include",
-          xhrFields: {
-            withCredentials: true,
-          },
-          body: JSON.stringify({ token: cookies.token }),
-        });
+        const response = await fetch(
+          "https://mernback-2g3e.onrender.com/api/loggedUser",
+          {
+            method: "POST",
+            headers: {
+              // Authorization: `Bearer ${cookies.token}`,
+              "Content-type": "application/json",
+            },
+            credentials: "include",
+            xhrFields: {
+              withCredentials: true,
+            },
+            body: JSON.stringify({ token: cookies.token }),
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
