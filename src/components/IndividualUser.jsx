@@ -188,7 +188,6 @@ const IndividualUser = () => {
     window.location.reload();
   };
 
-  console.log(follows);
   return (
     <div className="container mx-auto mt-10">
       <div className="max-w-md mx-auto bg-white rounded-md shadow-md overflow-hidden">

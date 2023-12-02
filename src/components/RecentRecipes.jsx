@@ -7,9 +7,12 @@ const RecentRecipes = () => {
     async function fetchData() {
       setLoading(true);
       try {
-        const response = await fetch("https://mernback-2g3e.onrender.com/api/recipes", {
-          method: "GET",
-        });
+        const response = await fetch(
+          "https://mernback-2g3e.onrender.com/api/recipes",
+          {
+            method: "GET",
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           setRecipe(data);
