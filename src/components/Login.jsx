@@ -51,7 +51,7 @@ const Login = () => {
       if (resp == "Invalid password") setNotFound(true);
       if (resp == "sucess") {
         setSuccess(true);
-        window.location.href = "/home";
+        // window.location.href = "/";
       }
     }
     setLoading(false);
@@ -146,6 +146,15 @@ const Login = () => {
             Already have an account? Register
           </Link>
         </div>
+
+        {success ? (
+          <div className="bg-green-600 text-white p-2 rounded mt-2">
+            {/* User with that credentials does not exist. */}
+            <Link to="/home" className="text-blue-500 hover:underline">
+              Explore Recipes{" "}
+            </Link>{" "}
+          </div>
+        ) : null}
       </div>
     </div>
   );
